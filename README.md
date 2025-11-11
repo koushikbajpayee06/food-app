@@ -20,6 +20,8 @@
 - Take care of browser list visit https://browserslist.dev
 
 
-
+## JSX
+- JSX is HTML or XML like syntax.
+- 
 
 
