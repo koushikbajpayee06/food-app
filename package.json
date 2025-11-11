@@ -1,0 +1,18 @@
+{
+  "name": "foodapp",
+  "version": "1.0.0",
+  "description": "- Dev Build\r - Local Server\r - HMR = Hot Module Replacement\r - File Watching Algorithm = written c++\r - Caching - Faster Builds\r - Image Optimization\r - Bundling\r - Compressed\r - Consistent Hashing\r - Code Splitting\r - Differential Bundling - support older browser\r - Diagonastic \r - Error Handling\r - Host in https\r - Tree Shaking - remove un-used code\r - Take care of browser list visit https://browserslist.dev",
+  "license": "ISC",
+  "author": "koushik",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
