@@ -1,18 +1,26 @@
 import React from 'react'
 
-const RestaurentCard = ({resName,cuisine,ratings,deliveryTime}) => {
-    // console.log(props);
+
+
+
+const RestaurentCard = ({resData}) => {
+    console.log(resData);
+    const {name, cuisines, totalRatings,deliveryTime,costForTwo,image} = resData;
+    const baseURL ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+    // const imageId = extractImageId(image);
+
   return (
     <div className='res-card'>
-        <img className="res-img" alt='res-logo' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/10/17/641102cd-be56-4c4b-9df1-a89fcc4430ad_39309.JPG'/>
+        <img className="res-img" alt='res-logo' src={baseURL+ image}/>
         <div className='res-info'>
-            <h3 className="res-name">{resName}</h3>
-             <p className="res-cuisines">{cuisine}</p>
+            <h3 className="res-name">{name}</h3>
+             <p className="res-cuisines">{cuisines.join(',')}</p>
              <div className="res-details">
-                <span className="res-rating">⭐ {ratings}</span>
+                <span className="res-rating">⭐ {totalRatings}</span>
                 <span>•</span>
                 <span>{deliveryTime} mins</span>
              </div>
+              <p className="res-cost">{costForTwo}</p>
         </div>
 
     </div>
