@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 const RestaurentCard = ({resData}) => {
     console.log(resData);
     const {name, cuisines, totalRatings,deliveryTime,costForTwo,image} = resData;
