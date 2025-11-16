@@ -11,7 +11,7 @@ const RestaurentCard = ({resData}) => {
         <img className="res-img" alt='res-logo' src={CDN_URL+ image}/>
         <div className='res-info'>
             <h3 className="res-name">{name}</h3>
-             <p className="res-cuisines">{cuisines.join(',')}</p>
+             <p className="res-cuisines">{cuisines.join(',') || "No cuisines listed"}</p>
              <div className="res-details">
                 <span className="res-rating">⭐ {totalRatings}</span>
                 <span>•</span>

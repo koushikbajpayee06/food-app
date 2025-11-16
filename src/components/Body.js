@@ -17,6 +17,7 @@ const extractImageId = (id) => {
 const Body = () => {
   const [listOfRestaurents,setListOfRestaurents] = useState(resList);
 
+
   useEffect(()=>{
     fetchData();
   },[]);
@@ -25,6 +26,7 @@ const Body = () => {
     const data = await fetch('https://namastedev.com/api/v1/listRestaurants');
     const json = await data.json();
     console.log(json);
+    setListOfRestaurents(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
   return (
