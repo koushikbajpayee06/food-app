@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RestaurentCard from './RestaurentCard'
 import resList from '../utills/mockdata';
 
@@ -16,6 +16,16 @@ const extractImageId = (id) => {
 
 const Body = () => {
   const [listOfRestaurents,setListOfRestaurents] = useState(resList);
+
+  useEffect(()=>{
+    fetchData();
+  },[]);
+
+  const fetchData = async()=>{
+    const data = await fetch('https://namastedev.com/api/v1/listRestaurants');
+    const json = await data.json();
+    console.log(json);
+  }
 
   return (
     <div className='body'>

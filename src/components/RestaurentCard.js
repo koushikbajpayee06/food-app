@@ -2,7 +2,7 @@ import React from 'react'
 import { CDN_URL } from '../utills/constant';
 
 const RestaurentCard = ({resData}) => {
-    console.log(resData);
+    // console.log(resData);
     const {name, cuisines, totalRatings,deliveryTime,costForTwo,image,avgRating} = resData;;
     // const imageId = extractImageId(image);
 
