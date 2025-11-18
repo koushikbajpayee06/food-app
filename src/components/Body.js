@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RestaurentCard from './RestaurentCard'
+import ShimmerUI from './shimmerUI';
 
 // restaurantList.js
 
@@ -21,10 +22,12 @@ const Body = () => {
   const fetchData = async()=>{
     const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
     const json = await data.json()
-    console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-    setListOfRestaurents(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+    // console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setListOfRestaurents(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
-
+  if(listOfRestaurents.length===0){
+    return <ShimmerUI/>
+  }
   return (
     <div className='body'>
       <div className='filter'>
