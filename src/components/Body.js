@@ -25,9 +25,11 @@ const Body = () => {
     // console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
     setListOfRestaurents(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
+
   if(listOfRestaurents.length===0){
     return <ShimmerUI/>
   }
+  
   return (
     <div className='body'>
       <div className='filter'>
@@ -35,7 +37,7 @@ const Body = () => {
          onClick={
           ()=>{
             const filterList = listOfRestaurents.filter(
-            (item)=>item.avgRating>4.5)
+            (item)=>item.info.avgRating>4.5)
             setListOfRestaurents(filterList);
           }
         }     
