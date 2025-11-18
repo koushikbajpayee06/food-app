@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import RestaurentCard from './RestaurentCard'
-import resList from '../utills/mockdata';
 
 // restaurantList.js
 
@@ -12,21 +11,18 @@ const extractImageId = (id) => {
   return file.split(".")[0];
 };
 
-
-
 const Body = () => {
-  const [listOfRestaurents,setListOfRestaurents] = useState(resList);
-
+  const [listOfRestaurents,setListOfRestaurents] = useState([]);
 
   useEffect(()=>{
-    fetchData();
+    fetchData()
   },[]);
 
   const fetchData = async()=>{
-    const data = await fetch('https://namastedev.com/api/v1/listRestaurants');
-    const json = await data.json();
-    console.log(json);
-    setListOfRestaurents(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
+    const json = await data.json()
+    console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setListOfRestaurents(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
   }
 
   return (
@@ -44,8 +40,10 @@ const Body = () => {
       </div>
       <div className='res-container'>
         {
-          listOfRestaurents.map((res)=><RestaurentCard key={res.id} resData={res}/>)
+          listOfRestaurents.map((res)=><RestaurentCard 
+          key={res.info.id} resData={res.info}/>)
         }
+        
       </div>
     </div>
   )

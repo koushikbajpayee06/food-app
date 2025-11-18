@@ -6,11 +6,6 @@ const extractImageId = (id) => {
   return file.split(".")[0];
 };
 
-
-
-
-
-
 const resList = [
   {
     id: "123456",
