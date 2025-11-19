@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Logo_URL } from '../utills/constant'
 
 const Header = () => {
-  const [btnName, setBtnName] = useState('Login')
+  const [btnName, setBtnName] = useState('Login');
+  console.log("Header Render");
+
   return (
     <div className='header'>
       <div className='logo-container'>

@@ -147,3 +147,11 @@
   padding: 0px 20px;
   cursor: pointer;
 }
+.filter{
+  display: flex;
+  justify-content: space-between;
+}
+.search{
+  margin-top: 10px;
+}
+
