@@ -14,6 +14,7 @@ const extractImageId = (id) => {
 
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
+  const [filteredRes,setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
   console.log("body rendered");
 
@@ -24,13 +25,15 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
     const json = await data.json();
-    console.log(
-      json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    );
+    // console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants); 
     setListOfRestaurents(
       json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+    setFilteredRes(
+      json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    )
   };
 
   return listOfRestaurents.length === 0 ? (
@@ -65,14 +68,14 @@ const Body = () => {
             const filterList = listOfRestaurents.filter(
               (item) => item.info.avgRating > 4.5
             );
-            setListOfRestaurents(filterList);
+            setFilteredRes(filterList);
           }}
         >
           Top Rated Resaurents
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurents.map((res) => (
+        {filteredRes.map((res) => (
           <RestaurentCard key={res.info.id} resData={res.info} />
         ))}
       </div>
