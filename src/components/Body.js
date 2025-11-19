@@ -51,7 +51,7 @@ const Body = () => {
             onClick={() => {
               // console.log(searchText);
               const filteredRestaurent = listOfRestaurents.filter(
-                (res) => res.info.name.includes(searchText) 
+                (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setListOfRestaurents(filteredRestaurent);
             }}
