@@ -6,6 +6,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import AboutUs from "./src/components/AboutUs";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
+import Cart from "./src/components/Cart";
+
 
 
 
@@ -13,8 +15,8 @@ const AppLayout = ()=>{
     // console.log(<Body/>)
     return(
         <div className="app">
-            <Header/>
-            <Outlet/>
+            <Header />
+            <Outlet />
         </div>
     );
 };
@@ -35,6 +37,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/contact',
                 element:<Contact/>
+            },
+            {
+                path:'/cart',
+                element:<Cart/>
             }
         ],
         errorElement:<Error/>
