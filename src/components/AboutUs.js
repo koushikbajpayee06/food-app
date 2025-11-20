@@ -10,6 +10,10 @@ class AboutUs extends React.Component{
     console.log("parents constructor is load");
   }
 
+  componentDidMount(){
+    console.log("Parent component did mount")
+  }
+
   render(){
     console.log("Parents render is called")
       return (

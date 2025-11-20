@@ -9,6 +9,11 @@ class UserClass extends React.Component{
         }
         console.log('Child  constructor is called')
     }
+
+    componentDidMount(){
+        console.log("Child Component Did mount");
+    }
+
     render(){
         const {name, location} = this.props;
         const {count} = this.state;
