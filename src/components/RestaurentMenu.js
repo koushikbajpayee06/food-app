@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import ShimmerUI from './shimmerUI';
+import { useParams } from 'react-router-dom';
+import { MENU_API } from '../utills/constant';
+
 
 const RestaurentMenu = () => {
 
     const [resInfo, setResInfo] = useState(null);
     const [menu, setMenu] = useState([]);
+    const {resId} = useParams();
 
     useEffect(()=>{
         fetchData();
     },[]);
 
     const fetchData = async()=>{
-        const resId = "123456";
-        const data = await fetch(
-            `https://namastedev.com/api/v1/listRestaurantMenu/${resId}`
-        );
+       
+        const data = await fetch(MENU_API+ resId);
         const json = await data.json();
-        console.log(json.data.cards)
+        console.log(json)
 
         // Save full response
         setResInfo(json.data);
@@ -45,7 +47,7 @@ const RestaurentMenu = () => {
       <p>{cuisines?.join(', ')} - {costForTwo}</p>
 
       <h2>Menu</h2>
-      
+
 
       {menu.map((category, index) => {
         const card = category.card.card;
