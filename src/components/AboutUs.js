@@ -7,11 +7,11 @@ class AboutUs extends React.Component{
   constructor(props){
     super(props);
 
-    console.log("parents constructor is load");
+    console.log(" parents constructor is load");
   }
 
   componentDidMount(){
-    console.log("Parent component did mount")
+    console.log(" Parent component did mount")
   }
 
   render(){
@@ -21,6 +21,7 @@ class AboutUs extends React.Component{
           <h1>About class component</h1>
           <h2>This is about us page</h2>
           <UserClass name={"Koushik Bajpayee(class)"} location={"Kolkata"}/>
+          <UserClass name={"Jayeeta Barman(class)"} location={"Balurghat"}/>
         </div>
       )
   }

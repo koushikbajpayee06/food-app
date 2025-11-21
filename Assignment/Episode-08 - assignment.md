@@ -21,7 +21,7 @@
   - What if there are `multiple state variables`?
   - Write a `console.log` for each lifecycle method.
   - Play with the `console logs` to find out the `correct order of their execution`.
-- Create `interval` inside `componentDidMount`?
+  - Create `interval` inside `componentDidMount`?
   - Use `clearInterval` to `fix the issue` caused by the `interval`
 
 ## References:
