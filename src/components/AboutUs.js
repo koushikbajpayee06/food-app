@@ -10,11 +10,8 @@ class AboutUs extends React.Component{
     // console.log(" parents constructor is load");
   }
 
-  async componentDidMount(){
+  componentDidMount(){
     // console.log(" Parent component did mount")
-    const data = await fetch("https://api.github.com/users/koushikbajpayee06");
-    const json = await data.json();
-    console.log(json);
   }
 
   render(){
