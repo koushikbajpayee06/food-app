@@ -22,6 +22,7 @@ class AboutUs extends React.Component{
           <h2>This is about us page</h2>
           <UserClass name={"Koushik Bajpayee(class)"} location={"Kolkata"}/>
           <UserClass name={"Jayeeta Barman(class)"} location={"Balurghat"}/>
+          <UserClass name={"Saptarshi Pandey(class)"} location={"Bankura"}/>
         </div>
       )
   }
