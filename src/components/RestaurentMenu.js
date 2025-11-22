@@ -1,40 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import ShimmerUI from './shimmerUI';
 import { useParams } from 'react-router-dom';
-import { MENU_API } from '../utills/constant';
+import useRestaurentMenu from '../utills/useRestaurentMenu';
 
 
 const RestaurentMenu = () => {
 
-    const [resInfo, setResInfo] = useState(null);
     const [menu, setMenu] = useState([]);
     const {resId} = useParams();
+    const resInfo = useRestaurentMenu(resId);
+    
 
-    useEffect(()=>{
-        fetchData();
-    },[]);
+  useEffect(() => {
+    if (resInfo) extractMenu();
+  }, [resInfo]);
 
-    const fetchData = async()=>{
-       
-        const data = await fetch(MENU_API+ resId);
-        const json = await data.json();
-        console.log(json)
+  const extractMenu = () => {
+    const allCards =
+      resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
-        // Save full response
-        setResInfo(json.data);
+    const menuCategories = allCards.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+    setMenu(menuCategories);
+    // console.log(resInfo)
+  };
+  // console.log(resInfo)
 
-        // Extract menu
-        const allCards =
-            json?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
-
-        const menuCategories = allCards.filter(
-            (c) =>
-                c?.card?.card?.["@type"] ===
-                "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-        );
-
-        setMenu(menuCategories);
-    }
+  
 
     if(resInfo === null) return <ShimmerUI/>;
 
