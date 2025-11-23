@@ -14,7 +14,7 @@ const RestaurentCard = ({resData}) => {
   } = resData;
 
   return (
-    <div className='res-card'>
+    <div className='m-4 p-4 w-[290px]' style={{backgroundColor:'#f0f0f0'}}>
       <img 
         className='res-img'
         alt='res-logo'
