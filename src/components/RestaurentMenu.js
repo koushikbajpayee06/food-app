@@ -13,6 +13,11 @@ const RestaurentMenu = () => {
 
   useEffect(() => {
     if (resInfo) extractMenu();
+
+
+
+
+    
   }, [resInfo]);
 
   const extractMenu = () => {
