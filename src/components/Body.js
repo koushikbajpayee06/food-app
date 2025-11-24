@@ -21,7 +21,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const ResaurentCardPromoted = withPromotedLabel(RestaurentCard);
-  console.log("body rendered",listOfRestaurents);
+  // console.log("body rendered",listOfRestaurents);
 
   useEffect(() => {
     fetchData();
@@ -30,14 +30,14 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
     const json = await data.json();
-    // console.log(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    // console.log(json);
     setListOfRestaurents(
       json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredRes(
       json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+        ?.restaurants 
     );
   };
 
