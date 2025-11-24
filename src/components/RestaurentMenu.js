@@ -3,6 +3,7 @@ import ShimmerUI from './shimmerUI';
 import { useParams } from 'react-router-dom';
 import useRestaurentMenu from '../utills/useRestaurentMenu';
 import useMenu from '../utills/useMenu';
+import useAllMenu from '../utills/useAllMenu';
 
 
 const RestaurentMenu = () => {
@@ -12,11 +13,15 @@ const RestaurentMenu = () => {
     
     const resInfo = useRestaurentMenu(resId);
   
+    const catagories = useAllMenu(resId);
   
 
-    if(resInfo === null) return <ShimmerUI/>;
+  if(resInfo === null || catagories === null) return <ShimmerUI/>;
+
+
 
     const {name, cuisines, costForTwo } = resInfo || {};
+
 
     // const {}
 
@@ -27,7 +32,7 @@ const RestaurentMenu = () => {
       <h2 className='text-2xl font-bold mb-2'>Menu</h2>
       <ul className='space-y-2 list-disc list-inside'>
         {
-          menu.map((res)=><li key={res.card.info.id}>{res.card.info.name}</li>)
+          menu.map((res)=><li key={res.card.info.id}>{res.card.info.name}- {res.card.info.price/100}</li>)
         }
       </ul>
     </div>
