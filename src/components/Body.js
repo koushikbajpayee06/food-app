@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, {withPromotedLabel} from "./RestaurentCard";
 import ShimmerUI from "./shimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utills/useOnlineState";
+
 
 // restaurantList.js
 
@@ -18,7 +19,9 @@ const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log("body rendered");
+
+  const ResaurentCardPromoted = withPromotedLabel(RestaurentCard);
+  console.log("body rendered",listOfRestaurents);
 
   useEffect(() => {
     fetchData();
@@ -90,7 +93,10 @@ const Body = () => {
       <div className="flex flex-wrap">
         {filteredRes.map((res) => (
           <Link key={res.info.id} to={"restaurant/" + res.info.id}>
-            <RestaurentCard resData={res.info} />
+            {/**if the restaurent is veg then add veg label to it**/
+              res.info.veg ? 
+              (<ResaurentCardPromoted resData={res.info}/>): (<RestaurentCard resData={res.info}/>)
+            }
           </Link>
         ))}
       </div>
