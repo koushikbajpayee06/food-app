@@ -25,7 +25,7 @@ const useAllMenu = (resId) => {
 
     setCategories(categoryList);
   };
-  console.log("Categories inside custom hook:", categories);
+//   console.log("Categories inside custom hook:", categories);
   return categories;
 };
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import useRestaurentMenu from '../utills/useRestaurentMenu';
 import useMenu from '../utills/useMenu';
 import useAllMenu from '../utills/useAllMenu';
+import RestaurentCategory from './RestaurentCategory';
 
 
 const RestaurentMenu = () => {
@@ -24,17 +25,15 @@ const RestaurentMenu = () => {
 
 
     // const {}
-
+  // console.log(catagories);
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-2">{name}</h1>
-      <p>{cuisines?.join(', ')} - {costForTwo}</p>
-      <h2 className='text-2xl font-bold mb-2'>Menu</h2>
-      <ul className='space-y-2 list-disc list-inside'>
-        {
-          menu.map((res)=><li key={res.card.info.id}>{res.card.info.name}- {res.card.info.price/100}</li>)
-        }
-      </ul>
+    <div className='text-center'>
+      <h1 className="text-3xl  font-bold my-6">{name}</h1>
+      <p className='font-bold'>{cuisines?.join(', ')} - {costForTwo}</p>
+      {/* categories accordians */}
+      {catagories.map((category)=>
+        <RestaurentCategory key={category.card.card.title} data={category.card.card}/>
+      )}
     </div>
   )
 }
