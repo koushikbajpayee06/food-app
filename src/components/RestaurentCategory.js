@@ -25,4 +25,4 @@ const RestaurentCategory = ({data,showItems,setShowIndex,dummy}) => {
   )
 }
 
-export default RestaurentCategory
+export default RestaurentCategory;

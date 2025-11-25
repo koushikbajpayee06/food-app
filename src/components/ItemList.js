@@ -1,6 +1,6 @@
 import { BASE, CDN_URL } from "../utills/constant";
 const ItemList = ({items, dummy}) =>{
-    console.log(dummy);
+    // console.log(dummy);
     return ( 
         <div>
             {
