@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ItemList from './ItemList'
 
-const RestaurentCategory = ({data,showItems,setShowIndex}) => {
+const RestaurentCategory = ({data,showItems,setShowIndex,dummy}) => {
 
-
+  // console.log(dummy)
   const handleClick = ()=>{
     setShowIndex();
   }
@@ -18,7 +18,7 @@ const RestaurentCategory = ({data,showItems,setShowIndex}) => {
                 </span>
                 <span>⬇️</span>
             </div>
-            {showItems && <ItemList items = {data.itemCards}/>}
+            {showItems && <ItemList items = {data.itemCards}dummy={dummy}/>}
         </div>
       
     </div>

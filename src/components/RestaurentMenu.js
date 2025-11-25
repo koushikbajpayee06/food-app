@@ -8,6 +8,7 @@ import RestaurentCategory from './RestaurentCategory';
 
 const RestaurentMenu = () => {
 
+  const dummy = "Dummy Data"
   const {resId} = useParams();
     const menu = useMenu(resId);
     
@@ -37,6 +38,7 @@ const RestaurentMenu = () => {
         data={category.card.card} 
         showItems={index===showIndex ? true: false}
         setShowIndex={()=>setShowIndex(index)}
+        dummy={dummy}
         />
         
       )}
