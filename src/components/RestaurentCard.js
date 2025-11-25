@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CDN_URL } from '../utills/constant';
+import UserContext from '../utills/UserContext';
 
 const RestaurentCard = ({resData}) => {
 
+  const { loggedInUser } = useContext(UserContext);
+  
   const {
     name,
     cuisines,
@@ -34,6 +37,7 @@ const RestaurentCard = ({resData}) => {
 
         <p>{costForTwo}</p>
         <p>{avgRating} ⭐</p>
+        <p>{loggedInUser}</p>
       </div>
     </div>
   )
