@@ -27,5 +27,5 @@ describe("Contact Us Page Test Case",()=>{
         console.log(inputBoxes.length)
         // Assertion
         expect(inputBoxes.length).toBe(2);
-    })  
-})
+    });  
+});
